@@ -12,7 +12,7 @@ namespace GUI_QLDT
     {
         DeTaiBLL dtBLL = new DeTaiBLL();
 
-        public void showStudentList()
+        public void showDeTaiList()
         {
             Console.OutputEncoding = UnicodeEncoding.Unicode;
             try
@@ -21,7 +21,7 @@ namespace GUI_QLDT
                 string kq = "Mã đề tài\t Tên đề tài \t\t\t Chủ trì đề tài\t\t\t Giảng viên hướng dẫn\t\t Thời gian bắt đầu\t\t Thời gian kết thúc";
                 Console.WriteLine(kq);
 
-                List<DeTaiDTO> lstDeTai = dtBLL.getStudentList();
+                List<DeTaiDTO> lstDeTai = dtBLL.getDeTaiList();
 
                 if (lstDeTai != null && lstDeTai.Count > 0)
                 {
