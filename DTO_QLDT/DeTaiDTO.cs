@@ -49,12 +49,12 @@ namespace DTO_QLDT
         //}
         public virtual string toString()
         {
-            string kq = MaDeTai + "\t\t" + TenDeTai;
-            if (TenDeTai.Length <= 15)
+            string kq = MaDeTai + "\t" + TenDeTai;
+            if (TenDeTai.Length <= 30)
             {
-                kq += "\t\t" + ChuTriDeTai;
+                kq += "\t" + ChuTriDeTai;
             }
-            else if (ChuTriDeTai.Length <= 22)
+            else if (ChuTriDeTai.Length <= 15)
             {
                 kq += "\t" + GiangVienHD;
             }
@@ -65,7 +65,7 @@ namespace DTO_QLDT
             kq += "\t" + ThoiGianBatDau;
             if (ThoiGianBatDau.Length <= 15)
             {
-                kq += "\t\t" + ThoiGianKetThuc;
+                kq += "\t" + ThoiGianKetThuc;
             }
             else if (ThoiGianBatDau.Length <= 22)
             {
