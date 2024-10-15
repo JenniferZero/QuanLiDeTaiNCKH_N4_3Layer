@@ -17,7 +17,9 @@ namespace BLL_QLDT
         public DeTaiBLL() { }
         public List<DeTaiDTO> getStudentList()
         {
-            return dtDAL.ReadFile("..\\..\\Data\\ListDeTai.xml");
+            //return dtDAL.ReadFile("..\\..\\Data\\ListDeTai.xml");
+            return dtDAL.ReadFile("../../ListDeTai.xml");
+
         }
     }
 }
