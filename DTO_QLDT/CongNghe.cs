@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace DTO_QLDT
         public string MoiTruong { get => moiTruong; set => moiTruong = value; }
 
         public CongNghe() : base() { }
-        public CongNghe(string maDeTai, string tenDeTai, string chuTriDeTai, string giangVienHD, double tgBatDau, double tgKetThuc, string moiTruong) 
+        public CongNghe(string maDeTai, string tenDeTai, string chuTriDeTai, string giangVienHD, string tgBatDau, string tgKetThuc, string moiTruong) 
             : base(maDeTai, tenDeTai, chuTriDeTai, giangVienHD, tgBatDau, tgKetThuc)
         {
             this.MoiTruong = moiTruong;
@@ -43,10 +44,10 @@ namespace DTO_QLDT
             else
                 return 0;
         }
-        public override void Xuat()
-        {
-            base.Xuat();
-            Console.WriteLine("\tMoi truong de tai :" + MoiTruong);
-        }
+        //public override void Xuat()
+        //{
+        //    base.Xuat();
+        //    Console.WriteLine("\tMoi truong de tai :" + MoiTruong);
+        //}
     }
 }

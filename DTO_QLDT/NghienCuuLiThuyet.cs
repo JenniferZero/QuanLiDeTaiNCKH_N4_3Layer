@@ -13,7 +13,7 @@ namespace DTO_QLDT
         public bool ApDungThucTe { get => apDungThucTe; set => apDungThucTe = value; }
 
         public NghienCuuLiThuyet() : base () { }
-        public NghienCuuLiThuyet(string maDeTai, string tenDeTai, string chuTriDeTai, string giangVienHD, double tgBatDau, double tgKetThuc, bool apDungThucTe)
+        public NghienCuuLiThuyet(string maDeTai, string tenDeTai, string chuTriDeTai, string giangVienHD, string tgBatDau, string tgKetThuc, bool apDungThucTe)
             : base(maDeTai, tenDeTai, chuTriDeTai, giangVienHD, tgBatDau, tgKetThuc)
         {
             this.ApDungThucTe = apDungThucTe;
@@ -27,10 +27,10 @@ namespace DTO_QLDT
             else
                 return 8000000;
         }
-        public override void Xuat()
-        {
-            base.Xuat();
-            Console.WriteLine("\nTinh ap dung thuc te: "+ apDungThucTe);
-        }
+        //public override void Xuat()
+        //{
+        //    base.Xuat();
+        //    Console.WriteLine("\nTinh ap dung thuc te: "+ apDungThucTe);
+        //}
     }
 }

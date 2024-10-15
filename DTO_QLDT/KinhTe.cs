@@ -12,7 +12,7 @@ namespace DTO_QLDT
         public int CauHoiKhaoSat { get => cauHoiKhaoSat; set => cauHoiKhaoSat = value; }
 
         public KinhTe() : base() { }
-        public KinhTe(string maDeTai, string tenDeTai, string chuTriDeTai, string giangVienHD, double tgBatDau, double tgKetThuc, int cauHoiKhaoSat) 
+        public KinhTe(string maDeTai, string tenDeTai, string chuTriDeTai, string giangVienHD, string tgBatDau, string tgKetThuc, int cauHoiKhaoSat) 
             : base(maDeTai, tenDeTai, chuTriDeTai, giangVienHD, tgBatDau, tgKetThuc)
         {
             this.CauHoiKhaoSat = cauHoiKhaoSat;
@@ -31,10 +31,10 @@ namespace DTO_QLDT
             else 
                 return CauHoiKhaoSat * 450; 
         }
-        public override void Xuat()
-        {
-            base.Xuat();
-            Console.WriteLine("\nSo luong cau hoi khao sat: "+ cauHoiKhaoSat);
-        }
+        //public override void Xuat()
+        //{
+        //    base.Xuat();
+        //    Console.WriteLine("\nSo luong cau hoi khao sat: "+ cauHoiKhaoSat);
+        //}
     }
 }
