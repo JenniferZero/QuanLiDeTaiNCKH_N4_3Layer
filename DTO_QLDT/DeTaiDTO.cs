@@ -49,29 +49,10 @@ namespace DTO_QLDT
         //}
         public virtual string toString()
         {
-            string kq = MaDeTai + "\t" + TenDeTai;
-            if (TenDeTai.Length <= 30)
-            {
-                kq += "\t" + ChuTriDeTai;
-            }
-            else if (ChuTriDeTai.Length <= 15)
-            {
-                kq += "\t" + GiangVienHD;
-            }
-            else
-            {
-                kq += GiangVienHD;
-            }
-            kq += "\t" + ThoiGianBatDau;
-            if (ThoiGianBatDau.Length <= 15)
-            {
-                kq += "\t" + ThoiGianKetThuc;
-            }
-            else if (ThoiGianBatDau.Length <= 22)
-            {
-                kq += "\t" + ThoiGianKetThuc;
-            }
-            Console.WriteLine("\nKinh phi de tai: "+ kinhPhiDeTai());
+            string kq = $"{MaDeTai}\t{TenDeTai}";
+            kq += $"\t{ChuTriDeTai}\t{GiangVienHD}\t{ThoiGianBatDau}\t{ThoiGianKetThuc}";
+            kq += $"\nKinh phí đề tài: {kinhPhiDeTai()}";
+
             return kq;
         }
     }
