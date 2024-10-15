@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DanhSachDeTai>
+	<DeTai>
+		<Loai>1</Loai>
+		<MaDeTai>DT001</MaDeTai>
+		<TenDeTai>Ứng dụng công nghệ trong canh tác cây trồng</TenDeTai>
+		<ChuTriDeTai>Nguyễn Hữu Thắng</ChuTriDeTai>
+		<GiangVienHD>Hồ Mai Linh</GiangVienHD>
+		<ThoiGianBatDau>10/04/2018</ThoiGianBatDau>
+		<ThoiGianKetThuc>30/1/2019</ThoiGianKetThuc>
+		
+	</DeTai>
+</DanhSachDeTai>
