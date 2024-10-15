@@ -11,23 +11,35 @@ namespace GUI_QLDT
     public class DeTaiGUI
     {
         DeTaiBLL dtBLL = new DeTaiBLL();
+
         public void showStudentList()
         {
             Console.OutputEncoding = UnicodeEncoding.Unicode;
             try
             {
-                Console.WriteLine("\t\t\t\t\t\t DANH SÁCH ĐỀ TÀI");
-                string kq = "Mã đề tài\t Tên đề tài \t\t\t\t\t Chủ trì đề tài\t\t\t Giảng viên hướng dẫn\t\t Thời gian bắt đầu\t\t Thời gian kết thúc";
+                Console.WriteLine("\t\t\t\t\t\t DANH SÁCH ĐỀ TÀI\n");
+                string kq = "Mã đề tài\t Tên đề tài \t\t\t Chủ trì đề tài\t\t\t Giảng viên hướng dẫn\t\t Thời gian bắt đầu\t\t Thời gian kết thúc";
                 Console.WriteLine(kq);
 
-                List<DeTaiDTO> lstDeTai = new List<DeTaiDTO>();
-                lstDeTai = dtBLL.getStudentList();
-                foreach (DeTaiDTO dt in lstDeTai)
+                List<DeTaiDTO> lstDeTai = dtBLL.getStudentList();
+
+                if (lstDeTai != null && lstDeTai.Count > 0)
                 {
-                    Console.WriteLine(dt.toString());
+                    foreach (DeTaiDTO dt in lstDeTai)
+                    {
+                        Console.WriteLine(dt.toString());
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Không có dữ liệu để hiển thị.");
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Đã xảy ra lỗi: " + ex.Message);
+            }
         }
+
     }
 }
