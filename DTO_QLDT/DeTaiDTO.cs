@@ -71,7 +71,7 @@ namespace DTO_QLDT
             {
                 kq += "\t" + ThoiGianKetThuc;
             }
-
+            Console.WriteLine("\nKinh phi de tai: "+ kinhPhiDeTai());
             return kq;
         }
     }

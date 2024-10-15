@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -69,8 +70,29 @@ namespace DAL_QLDT
             }
         }
 
+        public void CapNhatKinhPhi10()
+        {
+            foreach (var dt in lstDeTai)
+            {
+                double kinhPhiCu = dt.kinhPhiDeTai();
+                double kinhPhiMoi = kinhPhiCu * 1.1;
+                kinhPhiMoi = dt.kinhPhiDeTai();
+            }
+        }
 
-        public List<KinhTe> inds100cau()
+        public void KinhPhiTren10Trieu()
+        {
+            Console.WriteLine("Danh sach de tai co kinh phi tren 10 trieu:");
+            foreach (var dt in lstDeTai)
+            {
+                if (dt.kinhPhiDeTai() > 10000000) 
+                {
+                    Console.WriteLine(dt.ToString()); 
+                }
+            }
+        }
+
+        public List<KinhTe> SoCauHoiTren100()
         {
             List<KinhTe> danhSachKinhTe = new List<KinhTe>(); 
             foreach (var dt in lstDeTai)
@@ -84,8 +106,23 @@ namespace DAL_QLDT
             }
             return danhSachKinhTe; 
         }
-        
 
+        public void ThoiGianTren4Thang()
+        {
+            Console.WriteLine("Danh sach de tai co thoi gian thuc hien tren 4 thang:");
+            foreach (var dt in lstDeTai)
+            {
+                DateTime startDate = DateTime.Parse(dt.ThoiGianBatDau);
+                DateTime endDate = DateTime.Parse(dt.ThoiGianKetThuc);
+
+                int TinhThoiGian = ((endDate.Year - startDate.Year) * 12) + endDate.Month - startDate.Month;
+
+                if (TinhThoiGian > 4)
+                {
+                    Console.WriteLine(dt.ToString()); 
+                }
+            }
+        }
 
         public void XuatDanhSachDT()
         {
@@ -108,7 +145,39 @@ namespace DAL_QLDT
                     dt.toString();
                 }
             }
-            inds100cau();
+            for (int i = 0; i < lstDeTai.Count; i++)
+            {
+                Console.WriteLine($"Thong tin de tai so {i + 1} co so cau hoi tren 100 : ");
+                Console.WriteLine(lstDeTai[i].ToString());
+            }
+            SoCauHoiTren100();
+
+            for (int i = 0; i < lstDeTai.Count; i++)
+            {
+                Console.WriteLine($"Thong tin de tai so {i + 1}: ");
+                Console.WriteLine(lstDeTai[i].ToString());
+            }
+            ThoiGianTren4Thang();
+
+            for (int i = 0; i < lstDeTai.Count; i++)
+            {
+                Console.WriteLine($"Thong tin de tai so {i + 1}: ");
+                Console.WriteLine(lstDeTai[i].ToString());
+            }
+            KinhPhiTren10Trieu();
+
+            for (int i = 0; i < lstDeTai.Count; i++)
+            {
+                Console.WriteLine($"Thong tin de tai so {i + 1}: ");
+                Console.WriteLine(lstDeTai[i].ToString());
+
+                double kinhPhi10 = lstDeTai[i].kinhPhiDeTai();
+                Console.WriteLine($"Kinh phi de tai: {kinhPhi10}");
+            }
+            CapNhatKinhPhi10();
+            
+
         }
+        
     }
 }
