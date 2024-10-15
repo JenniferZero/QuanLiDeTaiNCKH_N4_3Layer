@@ -5,25 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 
 using DAL_QLDT;
+using DTO_QLDT;
+using static BLL_QLDT.DeTaiBLL;
 
 namespace BLL_QLDT
 {
     public class DeTaiBLL
     {
-    //    private static DeTaiBLL instance;
-    //    public static DeTaiBLL Instance
-    //    {
-    //        get
-    //        {
-    //            if (instance == null)
-    //                instance = new DeTaiBLL();
-    //            return instance;
-    //        }
-    //    }
-    //    private DeTaiBLL() { }
-    //    public void checkClass(DataGridView data)
-    //    {
-    //        data.DataSource = DeTaiDAL.Instance.Checkclass();
-    //    }
+       
+        DeTaiDAL dtDAL = new DeTaiDAL();
+        public DeTaiBLL() { }
+        public List<DeTaiDTO> getStudentList()
+        {
+            return dtDAL.ReadFile("D:\\Users\\WIN 10\\source\\Repos\\New folder\\QuanLiDeTaiNCKH_N4_3Layer\\ListDeTai.xml");
+        }
     }
 }
