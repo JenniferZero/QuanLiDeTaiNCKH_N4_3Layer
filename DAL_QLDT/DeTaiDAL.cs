@@ -70,6 +70,42 @@ namespace DAL_QLDT
             }
         }
 
+        public List<DeTaiDTO> TimKiemDeTai(string keyword)
+        {
+            List<DeTaiDTO> ketQuaTimKiem = new List<DeTaiDTO>();
+
+            foreach (var dt in lstDeTai)
+            {
+                if (dt.MaDeTai.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                    dt.TenDeTai.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                    dt.ChuTriDeTai.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                    dt.GiangVienHD.IndexOf(keyword, StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    ketQuaTimKiem.Add(dt);
+                }
+            }
+            return ketQuaTimKiem;
+        }
+
+        public List<DeTaiDTO> TimKiemTheoGiangVien(string tenGiangVien)
+        {
+            List<DeTaiDTO> ketQua = new List<DeTaiDTO>();
+
+            foreach (var dt in lstDeTai)
+            {
+                if (dt.GiangVienHD.Equals(tenGiangVien, StringComparison.OrdinalIgnoreCase))
+                {
+                    ketQua.Add(dt);
+                }
+            }
+
+            if (ketQua.Count == 0)
+            {
+                Console.WriteLine("Không tìm thấy đề tài nào của giảng viên: " + tenGiangVien);
+            }
+            return ketQua;
+        }
+
         public void CapNhatKinhPhi10()
         {
             foreach (var dt in lstDeTai)
@@ -99,7 +135,6 @@ namespace DAL_QLDT
             {
                 if (dt is KinhTe kt && kt.CauHoiKhaoSat > 100)
                 {
-                    //kt.Xuat();
                     kt.toString();
                     danhSachKinhTe.Add(kt); 
                 }
@@ -124,60 +159,99 @@ namespace DAL_QLDT
             }
         }
 
+        //public void XuatDanhSachDT()
+        //{
+        //    foreach (var dt in lstDeTai)
+        //    {
+        //        Console.WriteLine("Thong tin de tai so {0}: ", lstDeTai.IndexOf(dt) + 1);
+        //        if (dt is NghienCuuLiThuyet lt)
+        //        {
+        //            //lt.Xuat();
+        //            lt.toString();
+        //        }
+        //        if (dt is CongNghe cn)
+        //        {
+        //            //cn.Xuat();
+        //            cn.toString();
+        //        }
+        //        if (dt is KinhTe kt)
+        //        {
+        //            //kt.Xuat();
+        //            dt.toString();
+        //        }
+        //    }
+        //    for (int i = 0; i < lstDeTai.Count; i++)
+        //    {
+        //        Console.WriteLine($"Thong tin de tai so {i + 1} co so cau hoi tren 100 : ");
+        //        Console.WriteLine(lstDeTai[i].ToString());
+        //    }
+        //    SoCauHoiTren100();
+
+        //    for (int i = 0; i < lstDeTai.Count; i++)
+        //    {
+        //        Console.WriteLine($"Thong tin de tai so {i + 1}: ");
+        //        Console.WriteLine(lstDeTai[i].ToString());
+        //    }
+        //    ThoiGianTren4Thang();
+
+        //    for (int i = 0; i < lstDeTai.Count; i++)
+        //    {
+        //        Console.WriteLine($"Thong tin de tai so {i + 1}: ");
+        //        Console.WriteLine(lstDeTai[i].ToString());
+        //    }
+        //    KinhPhiTren10Trieu();
+
+        //    for (int i = 0; i < lstDeTai.Count; i++)
+        //    {
+        //        Console.WriteLine($"Thong tin de tai so {i + 1}: ");
+        //        Console.WriteLine(lstDeTai[i].ToString());
+
+        //        double kinhPhi10 = lstDeTai[i].kinhPhiDeTai();
+        //        Console.WriteLine($"Kinh phi de tai: {kinhPhi10}");
+        //    }
+        //    CapNhatKinhPhi10();
+
         public void XuatDanhSachDT()
         {
-            foreach (var dt in lstDeTai)
-            {
-                Console.WriteLine("Thong tin de tai so {0}: ", lstDeTai.IndexOf(dt) + 1);
-                if (dt is NghienCuuLiThuyet lt)
-                {
-                    //lt.Xuat();
-                    lt.toString();
-                }
-                if (dt is CongNghe cn)
-                {
-                    //cn.Xuat();
-                    cn.toString();
-                }
-                if (dt is KinhTe kt)
-                {
-                    //kt.Xuat();
-                    dt.toString();
-                }
-            }
-            for (int i = 0; i < lstDeTai.Count; i++)
-            {
-                Console.WriteLine($"Thong tin de tai so {i + 1} co so cau hoi tren 100 : ");
-                Console.WriteLine(lstDeTai[i].ToString());
-            }
-            SoCauHoiTren100();
+            Console.WriteLine("Danh sách đề tài:");
 
             for (int i = 0; i < lstDeTai.Count; i++)
             {
-                Console.WriteLine($"Thong tin de tai so {i + 1}: ");
-                Console.WriteLine(lstDeTai[i].ToString());
+                Console.WriteLine($"Thông tin đề tài số {i + 1}: ");
+                Console.WriteLine(lstDeTai[i].ToString()); // Xuất thông tin đề tài
+
+                double kinhPhiCu = lstDeTai[i].kinhPhiDeTai(); // Kinh phí trước khi cập nhật
+                Console.WriteLine($"Kinh phí đề tài trước cập nhật: {kinhPhiCu}");
             }
+
+            // Gọi hàm cập nhật kinh phí
+            CapNhatKinhPhi10();
+
+            Console.WriteLine("Sau khi cập nhật kinh phí:");
+            for (int i = 0; i < lstDeTai.Count; i++)
+            {
+                Console.WriteLine($"Thông tin đề tài số {i + 1}: ");
+                Console.WriteLine(lstDeTai[i].ToString()); // Xuất thông tin đề tài sau khi cập nhật
+
+                double kinhPhiMoi = lstDeTai[i].kinhPhiDeTai(); // Kinh phí sau khi cập nhật
+                Console.WriteLine($"Kinh phí đề tài sau cập nhật: {kinhPhiMoi}");
+            }
+
+            // Xuất danh sách đề tài có số câu hỏi trên 100
+            List<KinhTe> danhSachKinhTe = SoCauHoiTren100();
+            Console.WriteLine("Danh sách đề tài Kinh tế có số câu hỏi trên 100:");
+            foreach (var kt in danhSachKinhTe)
+            {
+                Console.WriteLine(kt.ToString());
+            }
+
+            // Xuất danh sách đề tài có thời gian thực hiện trên 4 tháng
             ThoiGianTren4Thang();
 
-            for (int i = 0; i < lstDeTai.Count; i++)
-            {
-                Console.WriteLine($"Thong tin de tai so {i + 1}: ");
-                Console.WriteLine(lstDeTai[i].ToString());
-            }
+            // Xuất danh sách đề tài có kinh phí trên 10 triệu
             KinhPhiTren10Trieu();
-
-            for (int i = 0; i < lstDeTai.Count; i++)
-            {
-                Console.WriteLine($"Thong tin de tai so {i + 1}: ");
-                Console.WriteLine(lstDeTai[i].ToString());
-
-                double kinhPhi10 = lstDeTai[i].kinhPhiDeTai();
-                Console.WriteLine($"Kinh phi de tai: {kinhPhi10}");
-            }
-            CapNhatKinhPhi10();
-            
-
         }
-        
+
     }
 }
+
