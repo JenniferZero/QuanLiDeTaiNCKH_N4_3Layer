@@ -8,15 +8,15 @@ namespace DTO_QLDT
 {
     public class NghienCuuLiThuyet : DeTaiDTO
     {
-        private bool apDungThucTe;
+        private bool? apDungThucTe;
 
-        public bool ApDungThucTe { get => apDungThucTe; set => apDungThucTe = value; }
+        public bool? ApDungThucTe { get => apDungThucTe; set => apDungThucTe = value; }
 
         public NghienCuuLiThuyet() : base () { }
         public NghienCuuLiThuyet(string maDeTai, string tenDeTai, string chuTriDeTai, string giangVienHD, string tgBatDau, string tgKetThuc, bool apDungThucTe)
             : base(maDeTai, tenDeTai, chuTriDeTai, giangVienHD, tgBatDau, tgKetThuc)
         {
-            this.ApDungThucTe = apDungThucTe;
+            ApDungThucTe = apDungThucTe;
         }
         public override double kinhPhiDeTai()
         {
@@ -32,5 +32,11 @@ namespace DTO_QLDT
         //    base.Xuat();
         //    Console.WriteLine("\nTinh ap dung thuc te: "+ apDungThucTe);
         //}
+        public override string toString()
+        {
+            Console.WriteLine("\nTinh ap dung thuc te: " + apDungThucTe);
+            return base.toString();
+            
+        }
     }
 }

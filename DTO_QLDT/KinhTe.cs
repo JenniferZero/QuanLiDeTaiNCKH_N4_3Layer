@@ -11,11 +11,15 @@ namespace DTO_QLDT
         private int cauHoiKhaoSat;
         public int CauHoiKhaoSat { get => cauHoiKhaoSat; set => cauHoiKhaoSat = value; }
 
-        public KinhTe() : base() { }
+        public KinhTe() : base() 
+        {
+            cauHoiKhaoSat = 0;
+        }
+
         public KinhTe(string maDeTai, string tenDeTai, string chuTriDeTai, string giangVienHD, string tgBatDau, string tgKetThuc, int cauHoiKhaoSat) 
             : base(maDeTai, tenDeTai, chuTriDeTai, giangVienHD, tgBatDau, tgKetThuc)
         {
-            this.CauHoiKhaoSat = cauHoiKhaoSat;
+            CauHoiKhaoSat = cauHoiKhaoSat;
         }
         public override double kinhPhiDeTai()
         {
@@ -36,5 +40,11 @@ namespace DTO_QLDT
         //    base.Xuat();
         //    Console.WriteLine("\nSo luong cau hoi khao sat: "+ cauHoiKhaoSat);
         //}
+        public override string ToString()
+        {
+            Console.WriteLine("\nSo luong cau hoi khao sat: " + cauHoiKhaoSat);
+            return base.ToString();
+            
+        }
     }
 }

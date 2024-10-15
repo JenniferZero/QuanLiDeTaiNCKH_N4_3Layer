@@ -23,15 +23,23 @@ namespace DTO_QLDT
         public string ThoiGianBatDau { get => thoiGianBatDau; set => thoiGianBatDau = value; }
         public string ThoiGianKetThuc { get => thoiGianKetThuc; set => thoiGianKetThuc = value; }
 
-        public DeTaiDTO() { }
+        public DeTaiDTO() 
+        {
+            MaDeTai = "";
+            TenDeTai = "";
+            ChuTriDeTai = "";
+            GiangVienHD = "";
+            ThoiGianBatDau = "";
+            ThoiGianKetThuc = "";
+        }
         public DeTaiDTO(string maDeTai, string tenDeTai, string chuTriDeTai, string giangVienHD, string tgBatDau, string tgKetThuc)
         {
-            this.MaDeTai = maDeTai;
-            this.TenDeTai = tenDeTai;
-            this.ChuTriDeTai= chuTriDeTai;
-            this.GiangVienHD= giangVienHD;
-            this.ThoiGianBatDau = tgBatDau;
-            this.ThoiGianKetThuc = tgKetThuc;
+            MaDeTai = maDeTai;
+            TenDeTai = tenDeTai;
+            ChuTriDeTai = chuTriDeTai;
+            GiangVienHD = giangVienHD;
+            ThoiGianBatDau = tgBatDau;
+            ThoiGianKetThuc = tgKetThuc;
 
         }
         public abstract double kinhPhiDeTai();
@@ -39,7 +47,7 @@ namespace DTO_QLDT
         //{
         //    Console.WriteLine("{0}/t {1}/t {2}/t {3}/ {4} {5}", MaDeTai, TenDeTai, ChuTriDeTai, GiangVienHD, ThoiGianBatDau, ThoiGianKetThuc);
         //}
-        public string toString()
+        public virtual string toString()
         {
             string kq = MaDeTai + "\t\t" + TenDeTai;
             if (TenDeTai.Length <= 15)
