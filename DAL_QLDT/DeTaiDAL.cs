@@ -40,8 +40,8 @@ namespace DAL_QLDT
                     string TenDeTai = node["TenDeTai"].InnerText;
                     string ChuTriDeTai = node["ChuTriDeTai"].InnerText;
                     string GiangVienHD = node["GiangVienHD"].InnerText;
-                    double ThoiGianBatDau = double.Parse(node["ThoiGianBatDau"].InnerText);
-                    double ThoiGianKetThuc = double.Parse(node["ThoiGianKetThuc"].InnerText);
+                    string ThoiGianBatDau = node["ThoiGianBatDau"].InnerText;
+                    string ThoiGianKetThuc = node["ThoiGianKetThuc"].InnerText;
                     if (loai == 1)
                     {
                         bool ApDungThucTe = bool.Parse(node["ApDungThucTe"].InnerText);
@@ -77,7 +77,8 @@ namespace DAL_QLDT
             {
                 if (dt is KinhTe kt && kt.CauHoiKhaoSat > 100)
                 {
-                    kt.Xuat();
+                    //kt.Xuat();
+                    kt.toString();
                     danhSachKinhTe.Add(kt); 
                 }
             }
@@ -93,15 +94,18 @@ namespace DAL_QLDT
                 Console.WriteLine("Thong tin de tai so {0}: ", lstDeTai.IndexOf(dt) + 1);
                 if (dt is NghienCuuLiThuyet lt)
                 {
-                    lt.Xuat();
+                    //lt.Xuat();
+                    lt.toString();
                 }
                 if (dt is CongNghe cn)
                 {
-                    cn.Xuat();
+                    //cn.Xuat();
+                    cn.toString();
                 }
                 if (dt is KinhTe kt)
                 {
-                    kt.Xuat();
+                    //kt.Xuat();
+                    dt.toString();
                 }
             }
             inds100cau();
