@@ -271,23 +271,23 @@ namespace DAL_QLDT
         {
 
             Console.InputEncoding = UnicodeEncoding.Unicode;
-            foreach (DeTaiDTO dt in lstDeTai)
-            {
-                Console.WriteLine("\nThông Tin đề tài thứ {0}:", lstDeTai.IndexOf(dt) + 1);
+            //foreach (DeTaiDTO dt in lstDeTai)
+            //{
+            //    Console.WriteLine("\nThông Tin đề tài thứ {0}:", lstDeTai.IndexOf(dt) + 1);
 
-                if (dt is NghienCuuLiThuyet nclt)
-                {
-                    nclt.ToString();
-                }
-                if (dt is KinhTe kt)
-                {
-                    kt.ToString();
-                }
-                if (dt is CongNghe cn)
-                {
-                    cn.ToString();
-                }
-            }
+            //    if (dt is NghienCuuLiThuyet nclt)
+            //    {
+            //        nclt.ToString();
+            //    }
+            //    if (dt is KinhTe kt)
+            //    {
+            //        kt.ToString();
+            //    }
+            //    if (dt is CongNghe cn)
+            //    {
+            //        cn.ToString();
+            //    }
+            //}
             Console.WriteLine("Danh sách đề tài:");
 
             for (int i = 0; i < lstDeTai.Count; i++)

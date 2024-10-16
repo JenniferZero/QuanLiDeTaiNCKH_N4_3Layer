@@ -32,6 +32,7 @@ namespace GUI_QLDT
             //dtDAL.XuatDanhSachDT(); // Hàm xuất thêm thông tin các yêu cầu có trong DeTaiDAL #########################
             Console.WriteLine("Nhập thêm thông tin đề tài:");
             Console.ReadLine();
+            //Console.ReadKey();
         }
     }
 }
