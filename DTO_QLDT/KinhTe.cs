@@ -35,11 +35,7 @@ namespace DTO_QLDT
             else 
                 return CauHoiKhaoSat * 450; 
         }
-        //public override void Xuat()
-        //{
-        //    base.Xuat();
-        //    Console.WriteLine("\nSo luong cau hoi khao sat: "+ cauHoiKhaoSat);
-        //}
+
         public override string ToString()
         {
             Console.WriteLine("\nSo luong cau hoi khao sat: " + cauHoiKhaoSat);

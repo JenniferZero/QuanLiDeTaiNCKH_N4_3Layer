@@ -48,11 +48,7 @@ namespace DTO_QLDT
             else
                 return 0;
         }
-        //public override void Xuat()
-        //{
-        //    base.Xuat();
-        //    Console.WriteLine("\tMoi truong de tai :" + MoiTruong);
-        //}
+
         public override string toString()
         {
             Console.WriteLine("\tMoi truong de tai :" + MoiTruong);

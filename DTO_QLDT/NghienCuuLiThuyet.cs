@@ -27,11 +27,7 @@ namespace DTO_QLDT
             else
                 return 8000000;
         }
-        //public override void Xuat()
-        //{
-        //    base.Xuat();
-        //    Console.WriteLine("\nTinh ap dung thuc te: "+ apDungThucTe);
-        //}
+
         public override string toString()
         {
             Console.WriteLine("\nTinh ap dung thuc te: " + apDungThucTe);

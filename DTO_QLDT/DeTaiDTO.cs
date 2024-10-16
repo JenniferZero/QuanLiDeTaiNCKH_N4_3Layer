@@ -43,10 +43,7 @@ namespace DTO_QLDT
 
         }
         public abstract double kinhPhiDeTai();
-        //public virtual void Xuat()
-        //{
-        //    Console.WriteLine("{0}/t {1}/t {2}/t {3}/ {4} {5}", MaDeTai, TenDeTai, ChuTriDeTai, GiangVienHD, ThoiGianBatDau, ThoiGianKetThuc);
-        //}
+
         public virtual string toString()
         {
             string kq = $"{MaDeTai}\t{TenDeTai}";
