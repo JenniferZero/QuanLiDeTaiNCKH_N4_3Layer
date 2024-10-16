@@ -2,42 +2,52 @@
 <DanhSachDeTai>
 	<DeTai>
 		<Loai>1</Loai>
-		<MaDeTai>DT001</MaDeTai>
-		<TenDeTai>Ứng dụng công nghệ trong canh tác cây trồng</TenDeTai>
+		<MaDeTai>DT0001</MaDeTai>
+		<TenDeTai>Ứng dụng Trí tuệ Nhân tạo trong Chẩn đoán Y khoa</TenDeTai>
 		<ChuTriDeTai>Nguyễn Hữu Thắng</ChuTriDeTai>
-		<GiangVienHD>Hồ Mai Linh</GiangVienHD>
-		<ThoiGianBatDau>10/04/2018</ThoiGianBatDau>
-		<ThoiGianKetThuc>30/1/2019</ThoiGianKetThuc>
+		<GiangVienHD>Đinh Thị Tâm</GiangVienHD>
+		<ThoiGianBatDau>10/04/2021</ThoiGianBatDau>
+		<ThoiGianKetThuc>30/1/2024</ThoiGianKetThuc>
 		<ApDungThucTe>true</ApDungThucTe>
 	</DeTai>
 	<DeTai>
 		<Loai>2</Loai>
-		<MaDeTai>DT001</MaDeTai>
-		<TenDeTai>Ứng dụng công nghệ trong canh tác cây trồng</TenDeTai>
-		<ChuTriDeTai>Nguyễn Hữu Thắng</ChuTriDeTai>
+		<MaDeTai>DT0002</MaDeTai>
+		<TenDeTai>Phát triển Hệ thống Giao thông Thông minh</TenDeTai>
+		<ChuTriDeTai>Tô Nguyễn Tấn Khải</ChuTriDeTai>
 		<GiangVienHD>Hồ Mai Linh</GiangVienHD>
 		<ThoiGianBatDau>10/04/2018</ThoiGianBatDau>
+		<ThoiGianKetThuc>30/1/2024</ThoiGianKetThuc>
+		<CauHoiKhaoSat>1000</CauHoiKhaoSat>
+	</DeTai>
+	<DeTai>
+		<Loai>3</Loai>
+		<MaDeTai>DT0003</MaDeTai>
+		<TenDeTai>Công nghệ Blockchain và Ứng dụng trong Quản lý Chuỗi Cung Ứng</TenDeTai>
+		<ChuTriDeTai>Võ Minh Duy</ChuTriDeTai>
+		<GiangVienHD>Nguyễn Hải Yến</GiangVienHD>
+		<ThoiGianBatDau>10/04/2020</ThoiGianBatDau>
+		<ThoiGianKetThuc>30/1/2022</ThoiGianKetThuc>
+		<MoiTruong>web</MoiTruong>
+	</DeTai>
+	<DeTai>
+		<Loai>2</Loai>
+		<MaDeTai>DT0004</MaDeTai>
+		<TenDeTai>Nghiên cứu về An ninh Mạng trong Kỷ nguyên Số</TenDeTai>
+		<ChuTriDeTai>Huỳnh Ngọc Khôi</ChuTriDeTai>
+		<GiangVienHD>Nguyễn Thị Tú Trinh</GiangVienHD>
+		<ThoiGianBatDau>10/04/2013</ThoiGianBatDau>
 		<ThoiGianKetThuc>30/1/2019</ThoiGianKetThuc>
 		<CauHoiKhaoSat>1000</CauHoiKhaoSat>
 	</DeTai>
 	<DeTai>
 		<Loai>3</Loai>
-		<MaDeTai>DT001</MaDeTai>
-		<TenDeTai>Ứng dụng công nghệ trong canh tác cây trồng</TenDeTai>
-		<ChuTriDeTai>Nguyễn Hữu Thắng</ChuTriDeTai>
-		<GiangVienHD>Hồ Mai Linh</GiangVienHD>
-		<ThoiGianBatDau>10/04/2018</ThoiGianBatDau>
-		<ThoiGianKetThuc>30/1/2019</ThoiGianKetThuc>
+		<MaDeTai>DT0005</MaDeTai>
+		<TenDeTai>Công nghệ Blockchain và Ứng dụng trong Quản lý Chuỗi Cung Ứng</TenDeTai>
+		<ChuTriDeTai>Võ Minh Duy</ChuTriDeTai>
+		<GiangVienHD>Hồ Mạnh Cường</GiangVienHD>
+		<ThoiGianBatDau>10/04/2020</ThoiGianBatDau>
+		<ThoiGianKetThuc>30/1/2022</ThoiGianKetThuc>
 		<MoiTruong>web</MoiTruong>
-	</DeTai>
-	<DeTai>
-		<Loai>2</Loai>
-		<MaDeTai>DT001</MaDeTai>
-		<TenDeTai>Ứng dụng công nghệ trong canh tác cây trồng</TenDeTai>
-		<ChuTriDeTai>Nguyễn Hữu Thắng</ChuTriDeTai>
-		<GiangVienHD>Hồ Mai Linh</GiangVienHD>
-		<ThoiGianBatDau>10/04/2018</ThoiGianBatDau>
-		<ThoiGianKetThuc>30/1/2019</ThoiGianKetThuc>
-		<CauHoiKhaoSat>1000</CauHoiKhaoSat>
 	</DeTai>
 </DanhSachDeTai>

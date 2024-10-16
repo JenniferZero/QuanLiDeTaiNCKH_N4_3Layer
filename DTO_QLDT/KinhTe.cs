@@ -35,12 +35,11 @@ namespace DTO_QLDT
             else 
                 return CauHoiKhaoSat * 450; 
         }
-
         public override string ToString()
         {
-            Console.WriteLine("\nSo luong cau hoi khao sat: " + cauHoiKhaoSat);
-            return base.ToString();
-            
+            string kq = base.ToString();
+            kq += $"\t Số câu hỏi khảo sát: {CauHoiKhaoSat}";
+            return kq;
         }
     }
 }

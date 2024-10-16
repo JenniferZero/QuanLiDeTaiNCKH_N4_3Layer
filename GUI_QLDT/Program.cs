@@ -10,39 +10,28 @@ namespace GUI_QLDT
 {
     class Program
     {
+
         public static void testDeTaiList()
         {
-            DeTaiGUI dtGUI = new DeTaiGUI();
-            dtGUI.showDeTaiList();
-            Console.ReadKey();
+            try
+            {
+                DeTaiGUI dtGUI = new DeTaiGUI();
+                dtGUI.showDeTaiList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Đã xảy ra lỗi: " + ex.Message);
+            }
         }
 
         static void Main(string[] args)
         {
+           
             testDeTaiList();
+            DeTaiDAL dtDAL = new DeTaiDAL();
+            //dtDAL.XuatDanhSachDT(); // Hàm xuất thêm thông tin các yêu cầu có trong DeTaiDAL #########################
+            Console.WriteLine("Nhập thêm thông tin đề tài:");
+            Console.ReadLine();
         }
-
-        //public static void testDeTaiList()
-        //{
-        //    try
-        //    {
-        //        DeTaiGUI dtGUI = new DeTaiGUI();
-        //        dtGUI.showDeTaiList(); 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Console.WriteLine("Đã xảy ra lỗi: " + ex.Message);
-        //    }
-        //    finally
-        //    {
-        //        Console.WriteLine("Nhấn phím bất kỳ để tiếp tục...");
-        //        Console.ReadKey();
-        //    }
-        //}
-        //static void Main(string[] args)
-        //{
-        //    testDeTaiList();
-        //}
-
     }
 }

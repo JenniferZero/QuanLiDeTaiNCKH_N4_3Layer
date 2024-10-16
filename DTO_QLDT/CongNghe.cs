@@ -51,8 +51,10 @@ namespace DTO_QLDT
 
         public override string toString()
         {
-            Console.WriteLine("\tMoi truong de tai :" + MoiTruong);
-            return base.toString();
+    
+            string kq = base.toString();
+            kq += $"\t Môi trường của đề tài: {MoiTruong}";
+            return kq;
             
         }
     }

@@ -46,11 +46,12 @@ namespace DTO_QLDT
 
         public virtual string toString()
         {
-            string kq = $"{MaDeTai}\t{TenDeTai}";
-            kq += $"\t{ChuTriDeTai}\t{GiangVienHD}\t{ThoiGianBatDau}\t{ThoiGianKetThuc}";
-            kq += $"\nKinh phí đề tài: {kinhPhiDeTai()}";
+            string kq = $"| {MaDeTai,-14}| {TenDeTai, -71}";
+            kq += $"| {ThoiGianBatDau,-31}| {ThoiGianKetThuc, -20}";
+            kq += $"\tKinh phí đề tài: {kinhPhiDeTai()}\n";
 
             return kq;
+        
         }
     }
 }

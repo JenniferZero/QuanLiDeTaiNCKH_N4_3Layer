@@ -23,7 +23,105 @@ namespace DAL_QLDT
         {
             this.lstDeTai = lstDeTai;
         }
+        #region Thêm đề tài mới
+        public void NhapDeTaiMoiVaLuu(string filename)
+        {
+            Console.InputEncoding = System.Text.Encoding.Unicode;
 
+            Console.WriteLine("Nhập loại đề tài (1: Nghiên cứu lý thuyết, 2: Kinh tế, 3: Công nghệ): ");
+            int loai = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Nhập mã đề tài: ");
+            string MaDeTai = Console.ReadLine();
+
+            Console.WriteLine("Nhập tên đề tài: ");
+            string TenDeTai = Console.ReadLine();
+
+            Console.WriteLine("Nhập tên chủ trì đề tài: ");
+            string ChuTriDeTai = Console.ReadLine();
+
+            Console.WriteLine("Nhập tên giảng viên hướng dẫn: ");
+            string GiangVienHD = Console.ReadLine();
+
+            Console.WriteLine("Nhập thời gian bắt đầu (dd/MM/yyyy): ");
+            string ThoiGianBatDau = Console.ReadLine();
+
+            Console.WriteLine("Nhập thời gian kết thúc (dd/MM/yyyy): ");
+            string ThoiGianKetThuc = Console.ReadLine();
+
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(filename); 
+
+            XmlNode root = xmlDoc.DocumentElement;
+
+            XmlElement newDeTai = xmlDoc.CreateElement("DeTai");
+
+
+            XmlElement loaiNode = xmlDoc.CreateElement("Loai");
+            loaiNode.InnerText = loai.ToString();
+            newDeTai.AppendChild(loaiNode);
+
+            XmlElement maDeTaiNode = xmlDoc.CreateElement("MaDeTai");
+            maDeTaiNode.InnerText = MaDeTai;
+            newDeTai.AppendChild(maDeTaiNode);
+
+            XmlElement tenDeTaiNode = xmlDoc.CreateElement("TenDeTai");
+            tenDeTaiNode.InnerText = TenDeTai;
+            newDeTai.AppendChild(tenDeTaiNode);
+
+            XmlElement chuTriNode = xmlDoc.CreateElement("ChuTriDeTai");
+            chuTriNode.InnerText = ChuTriDeTai;
+            newDeTai.AppendChild(chuTriNode);
+
+            XmlElement giangVienNode = xmlDoc.CreateElement("GiangVienHD");
+            giangVienNode.InnerText = GiangVienHD;
+            newDeTai.AppendChild(giangVienNode);
+
+            XmlElement thoiGianBDNode = xmlDoc.CreateElement("ThoiGianBatDau");
+            thoiGianBDNode.InnerText = ThoiGianBatDau;
+            newDeTai.AppendChild(thoiGianBDNode);
+
+            XmlElement thoiGianKTNode = xmlDoc.CreateElement("ThoiGianKetThuc");
+            thoiGianKTNode.InnerText = ThoiGianKetThuc;
+            newDeTai.AppendChild(thoiGianKTNode);
+
+            if (loai == 1)
+            {
+                Console.WriteLine("Đề tài áp dụng thực tế (true/false): ");
+                bool ApDungThucTe = bool.Parse(Console.ReadLine());
+
+                XmlElement apDungThucTeNode = xmlDoc.CreateElement("ApDungThucTe");
+                apDungThucTeNode.InnerText = ApDungThucTe.ToString();
+                newDeTai.AppendChild(apDungThucTeNode);
+            }
+            else if (loai == 2)
+            {
+                Console.WriteLine("Nhập số câu hỏi khảo sát: ");
+                int CauHoiKhaoSat = int.Parse(Console.ReadLine());
+
+                XmlElement cauHoiKhaoSatNode = xmlDoc.CreateElement("CauHoiKhaoSat");
+                cauHoiKhaoSatNode.InnerText = CauHoiKhaoSat.ToString();
+                newDeTai.AppendChild(cauHoiKhaoSatNode);
+            }
+            else if (loai == 3)
+            {
+                Console.WriteLine("Nhập môi trường công nghệ: ");
+                string MoiTruong = Console.ReadLine();
+
+                XmlElement moiTruongNode = xmlDoc.CreateElement("MoiTruong");
+                moiTruongNode.InnerText = MoiTruong;
+                newDeTai.AppendChild(moiTruongNode);
+            }
+
+            root.AppendChild(newDeTai);
+            xmlDoc.Save(filename);
+
+            Console.WriteLine("Đề tài mới đã được lưu vào file XML thành công!");
+        
+        }
+        #endregion
+
+        #region Đọc file xml
         public List<DeTaiDTO> ReadFile(string filename)
         {
 
@@ -72,7 +170,10 @@ namespace DAL_QLDT
             {
                 return null;
             }
-}
+        }
+        #endregion
+
+        #region Thuật toán
 
         public List<DeTaiDTO> TimKiemDeTai(string keyword)
         {
@@ -88,6 +189,7 @@ namespace DAL_QLDT
                     ketQuaTimKiem.Add(dt);
                 }
             }
+
             return ketQuaTimKiem;
         }
 
@@ -122,33 +224,33 @@ namespace DAL_QLDT
 
         public void KinhPhiTren10Trieu()
         {
-            Console.WriteLine("Danh sach de tai co kinh phi tren 10 trieu:");
+            Console.WriteLine("Danh sách đề tài có kinh phí trên 10 triệu:");
             foreach (var dt in lstDeTai)
             {
-                if (dt.kinhPhiDeTai() > 10000000) 
+                if (dt.kinhPhiDeTai() > 10000000)
                 {
-                    Console.WriteLine(dt.ToString()); 
+                    Console.WriteLine($"Mã đề tài: {dt.MaDeTai,-14}, Tên đề tài: {dt.TenDeTai,-122}, Kinh phí: {dt.kinhPhiDeTai()}");
                 }
             }
         }
 
         public List<KinhTe> SoCauHoiTren100()
         {
-            List<KinhTe> danhSachKinhTe = new List<KinhTe>(); 
+            List<KinhTe> danhSachKinhTe = new List<KinhTe>();
             foreach (var dt in lstDeTai)
             {
                 if (dt is KinhTe kt && kt.CauHoiKhaoSat > 100)
                 {
-                    kt.toString();
-                    danhSachKinhTe.Add(kt); 
+                    Console.WriteLine($"Mã đề tài: {dt.MaDeTai}, Tên đề tài: {dt.TenDeTai}, Số câu hỏi: {kt.CauHoiKhaoSat}");
+                    danhSachKinhTe.Add(kt);
                 }
             }
-            return danhSachKinhTe; 
+            return danhSachKinhTe;
         }
 
         public void ThoiGianTren4Thang()
         {
-            Console.WriteLine("Danh sach de tai co thoi gian thuc hien tren 4 thang:");
+            Console.WriteLine("Danh sách đề tài có thời gian thực hiện trên 4 tháng:");
             foreach (var dt in lstDeTai)
             {
                 DateTime startDate = DateTime.Parse(dt.ThoiGianBatDau);
@@ -158,24 +260,51 @@ namespace DAL_QLDT
 
                 if (TinhThoiGian > 4)
                 {
-                    Console.WriteLine(dt.ToString()); 
+                    Console.WriteLine(dt.ToString());
                 }
             }
         }
 
+        #endregion
+
         public void XuatDanhSachDT()
         {
+
+            Console.InputEncoding = UnicodeEncoding.Unicode;
+            foreach (DeTaiDTO dt in lstDeTai)
+            {
+                Console.WriteLine("\nThông Tin đề tài thứ {0}:", lstDeTai.IndexOf(dt) + 1);
+
+                if (dt is NghienCuuLiThuyet nclt)
+                {
+                    nclt.ToString();
+                }
+                if (dt is KinhTe kt)
+                {
+                    kt.ToString();
+                }
+                if (dt is CongNghe cn)
+                {
+                    cn.ToString();
+                }
+            }
             Console.WriteLine("Danh sách đề tài:");
 
             for (int i = 0; i < lstDeTai.Count; i++)
             {
                 Console.WriteLine($"Thông tin đề tài số {i + 1}: ");
-                Console.WriteLine(lstDeTai[i].ToString()); 
+                foreach (DeTaiDTO dt in lstDeTai)
+                {
+                    if (dt is NghienCuuLiThuyet nclt)
+                    {
+                        Console.WriteLine(lstDeTai[i].ToString());
+                        nclt.ToString();
+                    }
+                }
 
                 double kinhPhiCu = lstDeTai[i].kinhPhiDeTai();
                 Console.WriteLine($"Kinh phí đề tài trước cập nhật: {kinhPhiCu}");
             }
-
             // Gọi hàm cập nhật kinh phí
             CapNhatKinhPhi10();
 
@@ -202,8 +331,13 @@ namespace DAL_QLDT
 
             // Xuất danh sách đề tài có kinh phí trên 10 triệu
             KinhPhiTren10Trieu();
+
+
+
         }
 
     }
+
 }
+
 

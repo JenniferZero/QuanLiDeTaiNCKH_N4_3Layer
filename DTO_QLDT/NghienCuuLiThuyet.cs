@@ -30,8 +30,10 @@ namespace DTO_QLDT
 
         public override string toString()
         {
-            Console.WriteLine("\nTinh ap dung thuc te: " + apDungThucTe);
-            return base.toString();
+            
+            string kq = base.toString();
+            kq += $"\t Tính áp dụng thực tế (true = có | false = không): {ApDungThucTe}";
+            return kq;
             
         }
     }
