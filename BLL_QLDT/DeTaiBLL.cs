@@ -14,7 +14,7 @@ namespace BLL_QLDT
         public DeTaiBLL() { }
         public List<DeTaiDTO> getDeTaiList()
         {
-            return dtDAL.ReadFile("D:\\Users\\WIN 10\\source\\Repos\\QuanLiDeTaiNCKH_N4_3Layer\\ListDeTai.xml");
+            return dtDAL.ReadFile("..\\..\\ListDeTai.xml");
 
         }
         
